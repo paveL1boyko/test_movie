@@ -1,0 +1,23 @@
+.aside-content {
+    padding-left: 9px;
+}
+
+.aside-content .aside-title {
+    font-size: 22px;
+    font-weight: 700;
+    padding: 9px 0;
+}
+
+.aside-content .aside-genres {
+    font-size: 19px;
+}
+
+.aside-content .aside-genres a {
+    color: #3c3c3c;
+}
+
+.aside-content .aside-genres a:hover {
+    color: #ffffff;
+}
+
+/*# sourceMappingURL=aside.css.map */

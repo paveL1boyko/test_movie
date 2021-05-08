@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% block scc %}
+    {% load static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+{% endblock %}
+
+{% block title %}Ошибка при активации{% endblock %}
+{% block content %}
+    <h2>Активаци</h2>
+    <p>Активация пользователя с таким именем прошла неудачно.</p>
+    <p><a href="{% url 'main:register' %}">Зарегистрироваться повторно</a></p>
+{% endblock %}

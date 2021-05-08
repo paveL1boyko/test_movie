@@ -1,0 +1,20 @@
+{% load my_tags %}
+<div class="paginator-container">
+    <div class="paginator">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+        {% endif %}
+        {% len_paginator_bar as paginator_bar %}
+        {% for page in paginator_bar %}
+            {% if page == page_obj.number %}
+                <a class="selected_page" href="?page={{ page }}">{{ page }}</a>
+            {% else %}
+                <a href="?page={{ page }}">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+        {% endif %}
+    </div>
+</div>

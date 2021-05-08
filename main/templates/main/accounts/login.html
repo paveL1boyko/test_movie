@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% block scc %}
+    {% load static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+{% endblock %}
+{% block content %}
+    <h2>Вход</h2>
+    {% for message in messages %}
+        <h2>{{ message }}</h2>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <p>Вы уже выполнили вход</p>
+    {% else %}
+        <form class="login-form" action="" method="post" novalidate>
+            {% csrf_token %}
+            <div>
+                <div class="error">
+                    {% for error in form.non_field_errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                </div>
+                {% for field in form %}
+                    <div class="label">
+                        {{ field.label }}
+                        <div {% if field.errors %} class="input error_input" {% else %}
+                                                   class="input" {% endif %}>{{ field }}</div>
+                        <div class="error">
+                            {% for error in field.errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+                <input type="hidden" name="next" value="{{ next }}">
+                <p><a href="{% url 'main:reset_password' %}">Забыли пароль</a></p>
+
+                <button type="submit">Войти</button>
+            </div>
+        </form>
+    {% endif %}
+
+{% endblock %}

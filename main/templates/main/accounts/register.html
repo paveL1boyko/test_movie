@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% block scc %}
+    {% load static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+{% endblock %}
+{% block content %}
+    {% if  not user.is_authenticated %} <h2>Регистрация</h2> {% endif %}
+
+    <form class="login-form" action="" method="post">
+        {% csrf_token %}
+        <div>
+            {% for field in form %}
+                <div class="label">
+                    {{ field.label }}
+                    <div {% if field.errors %} class="input error_input" {% else %}
+                                               class="input" {% endif %}>{{ field }}</div>
+                    <div class="error">
+                        {% for error in field.errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            {% endfor %}
+            {% if user.is_active %}
+                <button type="submit">Сохранить</button>
+            {% else %}
+                <input type="hidden" name="next" value="{{ next }}">
+                <button type="submit">Зарегистрироваться</button>
+            {% endif %}
+
+        </div>
+    </form>
+
+{% endblock %}

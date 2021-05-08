@@ -1,0 +1,18 @@
+{% load movie_tags %}
+{% load_genres as genres %}
+
+<div class="aside-content">
+
+
+    <div class="aside-title">
+        Жанры
+    </div>
+    <div class="aside-genres">
+        {% for genre in genres %}
+            <a href="{{ genre.get_absolute_url }}">
+                <div>{{ genre.title }}</div>
+            </a>
+        {% endfor %}
+    </div>
+
+</div>

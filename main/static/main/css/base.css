@@ -1,0 +1,271 @@
+@charset "UTF-8";
+/*Обнуление*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus, :active {
+    outline: none;
+}
+
+a:focus, a:active {
+    outline: none;
+}
+
+nav, footer, header, aside {
+    display: block;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+/*--------------------*/
+.user {
+    margin-top: 20px;
+    line-height: 30px;
+    justify-content: flex-end;
+    display: block;
+    width: 100%;
+}
+
+.user p span {
+    font-weight: 600;
+}
+
+.user h2 {
+    font-size: 20px;
+    color: #f1cdcd;
+    text-align: center;
+}
+
+.user .user-info {
+    margin-left: 20px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button button {
+    height: 3em;
+    padding: 10px 0;
+    border-radius: 5px;
+    background: #bcb3b3;
+}
+
+.button button a {
+    padding: 20px 1em;
+    color: #0e0d0d;
+}
+
+.button button a:hover {
+    color: #6f69fe;
+}
+
+.header-container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container .header-image {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    background: #91a4a4;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.header-container .header-image .social_media {
+    padding-left: 50%;
+}
+
+.header-container .header-image .logo img {
+    height: 40px;
+}
+
+.header-container .header-image .social_media img {
+    height: 30px;
+    border-radius: 50%;
+}
+
+.header-container .nav {
+    flex: 0 0 40px;
+    display: flex;
+    background: #a19c9c;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 18px;
+}
+
+.header-container .nav a {
+    padding-right: 16px;
+    color: #0e0d0d;
+}
+
+.header-container .nav a:hover {
+    color: #ffffff;
+}
+
+.paginator-container {
+    display: flex;
+    min-height: 70px;
+    border-top: 2px solid #aeaeb0;
+}
+
+.paginator {
+    display: flex;
+    min-width: 225px;
+    width: 225px;
+    margin: auto;
+    height: 30px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginator a {
+    display: flex;
+    color: #333333;
+    width: 45px;
+    text-decoration: none;
+    box-shadow: -2px 0 10px #333333;
+    border-radius: 3px;
+    height: 100%;
+    background: #727f72;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginator a:hover {
+    background: #cecedb;
+}
+
+.selected_page {
+    background: #b0b0b4 !important;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    max-width: 1320px;
+    padding-right: 8px;
+    padding-left: 8px;
+    background: #c2bebe;
+    min-height: 100%;
+}
+
+.wrapper .header {
+    flex: 0 0 100px;
+    width: 100%;
+}
+
+.wrapper .main-content {
+    flex: 1 1 100%;
+    display: flex;
+    min-width: 100%;
+    background: #999292;
+}
+
+.wrapper .main-content .aside {
+    min-width: 200px;
+    flex: 1 1 20%;
+    order: -1;
+    background: #a19c9c;
+}
+
+.wrapper .main-content .content {
+    flex: 1 1 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 680px) {
+    .wrapper .main-content {
+        flex-direction: column;
+    }
+
+    .wrapper .main-content .content {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .wrapper .main-content .aside {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .wrapper .main-content .paginator-container {
+        width: 100%;
+    }
+}
+
+.wrapper .footer {
+    flex: 0 0 60px;
+    min-width: 100%;
+    background: #b0b0b4;
+}
+
+/*# sourceMappingURL=base.css.map */

@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% block scc %}
+    {% load static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+{% endblock %}
+{% block title %}Пользователь уже активирован{% endblock %}
+{% block content %}
+    <h2>Активация</h2>
+    <p>Пользователь стаким именем уже был активирован раньше.</p>
+    <p><a href="{% url 'main:login' %}">Войти на сайт</a></p>
+
+{% endblock %}

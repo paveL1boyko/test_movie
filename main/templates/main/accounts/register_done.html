@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% block title %}Регистрация завершена{% endblock %}
+
+{% block scc %}
+    {% load static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+
+{% endblock %}
+{% block content %}
+
+    <p>Регистрация пользователя завершена.</p>
+    <p>На адрес электронной почты, указанный пользователем, выслано письмо
+        для активации.
+    </p>
+{% endblock %}

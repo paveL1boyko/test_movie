@@ -1,0 +1,36 @@
+{% extends 'movie/base_movies.html' %}
+
+{% block title %}
+    {{ movie.title }}
+{% endblock %}
+
+{% block content %}
+    {% load my_tags %}
+
+    <div class="movie-container">
+        <div class="movie-item-container">
+            <div class="movie-image">
+                <a href="{{ movie.get_absolute_url }}"><img class="movie_img" src="{{ movie.image.url }}"
+                                                            alt="картинка фильма"></a>
+            </div>
+            <div class="movie-content">
+                <div class="movie-content__title">
+                    <p>{{ movie.title|title }}</p>
+                </div>
+                <div class="movie-content__description">
+                    <p>{{ movie.description }}</p>
+                </div>
+                <div class="movie-content__genres">
+                    <p><span>Режиссер:</span> {{ movie.directors|get_items }}</p>
+                    <p><span>Жанры:</span>
+                        {% for genre in movie.genres.all %}
+                            <a class="genres_"
+                               href="{{ genre.get_absolute_url }}">{{ genre.title }}</a>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

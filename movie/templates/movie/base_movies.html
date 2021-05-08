@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block scc %}
+    <link rel="stylesheet" href="{% static 'movie/css/movie_card.css' %}">
+{% endblock %}
+
+{% block title %}
+    фильмы
+{% endblock %}
+
+
+{% block aside1 %}
+    {% include 'movie/aside1.html' %}
+{% endblock %}
