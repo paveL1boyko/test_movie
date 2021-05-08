@@ -1,25 +1,20 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from django.utils.functional import lazy
+from django.utils.translation import gettext, gettext_lazy as _
 
-# from .forms import RegisterUserForm, AdminRegisterUserForm
-from .forms import AdminRegisterUserForm
 from .models import AdvUser
 
+gettext_lazy = lazy(gettext, str)
 
-# Register your models here.
 
 @admin.register(AdvUser)
-class AdvUserAdmin(admin.ModelAdmin):
-    form = AdminRegisterUserForm
-    autocomplete_fields = ['groups']
-    list_display = ('username', 'email')
-    field_order = ('username', 'email')
-    search_fields = ['username']
-    save_on_top = True
-
-    def get_fields(self, request, obj=None):
-        fields = ['username', 'password', 'email', 'first_name', 'last_name', 'send_message',
-                  'is_active', 'is_staff', 'is_superuser', 'user_permissions',
-                  'groups', ('date_joined', 'last_login')]
-        if not obj:
-            fields = ['username', 'password1', 'password2', 'email']
-        return fields
+class AdvNewUserAdmin(UserAdmin):
+    fieldsets = (
+        (None, {'fields': ('username', 'password')}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
+        (_('Permissions'), {
+            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions', 'send_message'),
+        }),
+        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+    )
